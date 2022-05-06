@@ -57,7 +57,7 @@ to knit as well. Here is one such example of how to do so:
 tinytex::tlmgr_install("babel-portuges")
 ```
 
-To use {thesisdown} from
+To use {UOAdown} from
 [RStudio](https://www.rstudio.com/products/rstudio/download/):
 
 1.  Ensure that you have already installed LaTeX and the fonts described
@@ -78,7 +78,7 @@ To use {thesisdown} from
     if (!require("remotes")) 
       install.packages("remotes", repos = "https://cran.rstudio.org")
     remotes::install_github("rstudio/bookdown")
-    remotes::install_github("ismayc/thesisdown")
+    remotes::install_github("d-scanzi/UOAdown")
     ```
 
           Note that you may need to restart RStudio at this point for
@@ -96,13 +96,13 @@ the following dialog to show up.
     graduation cap as the icon on the left for the appropriate project
     type.
 
-    ![](https://raw.githubusercontent.com/ismayc/thesisdown/master/docs/reference/figures/thesis_proj.png)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/thesis_proj.png?raw=true)
 
     Next, give your project a name and specify where you’d like the
     files to appear. In the screenshot below, the project name is
     `my_thesis` and it will appear as a new folder on my Desktop.
 
-    ![](https://raw.githubusercontent.com/ismayc/thesisdown/master/docs/reference/figures/thesis_proj_name.png)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/thesis_proj_name.png?raw=true)
 
     If for some reason this does not work, you can use the **not recommended** 
     procedure described in the next step (3b). This procedure is not recommmended
@@ -111,7 +111,7 @@ the following dialog to show up.
 
 -   3b) Use the **New R Markdown** dialog to select **Thesis**:
 
-    ![](https://raw.githubusercontent.com/ismayc/thesisdown/master/docs/reference/figures/thesis_rmd.png)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/thesis_rmd.png?raw=true)
 
     Note that this will currently only **Knit** if you name the
     directory `index` as shown above. This guarantees that `index.html`
