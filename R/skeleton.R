@@ -1,6 +1,6 @@
 # from https://github.com/rstudio/bookdown/blob/master/R/utils.R
 UOAdown_file <- function(...) {
-  system.file(..., package = 'UAOdown', mustWork = TRUE)
+  system.file(..., package = 'UOAdown', mustWork = TRUE)
 }
 
 # from https://github.com/rstudio/bookdown/blob/master/R/skeleton.R
