@@ -1,7 +1,7 @@
 #' Creates an R Markdown PDF Thesis document
 #'
 #' This is a function called in output in the YAML of the driver Rmd file
-#' to specify using the Reed College Senior Thesis LaTeX template and cls files.
+#' to specify using the University of Auckland Thesis LaTeX template and cls files.
 #'
 #' @export
 #'
@@ -17,7 +17,7 @@
 #'   template
 #' @examples
 #' \dontrun{
-#' output:thesisdown::thesis_pdf
+#' output:UOAdown::thesis_pdf
 #' }
 thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", pandoc_args = NULL, ...) {
   base <- bookdown::pdf_book(
@@ -52,7 +52,7 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", pandoc_
 #' @return A gitbook webpage
 #' @examples
 #' \dontrun{
-#' output:thesisdown::thesis_gitbook
+#' output:UOAdown::thesis_gitbook
 #' }
 thesis_gitbook <- function(...) {
   config_default <- list(
@@ -111,7 +111,7 @@ thesis_gitbook <- function(...) {
 #' the Reed Senior Thesis Word template
 #' @examples
 #' \dontrun{
-#' output:thesisdown::thesis_word
+#' output:UOAdown::thesis_word
 #' }
 thesis_word <- function(...) {
   base <- bookdown::word_document2(...)
@@ -134,7 +134,7 @@ thesis_word <- function(...) {
 #' @return A ebook version of the thesis
 #' @examples
 #' \dontrun{
-#' output:thesisdown::thesis_epub
+#' output:UOAdown::thesis_epub
 #' }
 thesis_epub <- function(...) {
   base <- bookdown::epub_book(...)

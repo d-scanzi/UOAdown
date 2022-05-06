@@ -4,7 +4,7 @@ thesisdown_file <- function(...) {
 }
 
 # from https://github.com/rstudio/bookdown/blob/master/R/skeleton.R
-thesisdown_skeleton <- function(path = getwd()) {
+UOAdown_skeleton <- function(path = getwd()) {
 
   # ensure directory exists
 #  dir.create(path, recursive = TRUE, showWarnings = FALSE)
