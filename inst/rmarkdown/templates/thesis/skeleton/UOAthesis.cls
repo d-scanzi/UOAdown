@@ -24,7 +24,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reedthesis}[2004/01/27 The Reed College Thesis Class]
+\ProvidesClass{UOAthesis}[2022/04/27 The University of Auckland Thesis Class]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
 \LoadClass{book}
@@ -101,27 +101,29 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 % End of CII add
 
+% ==============================================================================
+%                          UOA HEADER - APA STYLE 7th
+% ==============================================================================
+
+% ------Number and Running Header (plus citations stuff)------------------------
 % This gives us rules below the headers
 \AtBeginDocument{%
   \fancyhf{}
-  \fancyhead[LE,RO]{\thepage}
-%  \fancyhead[RE]{\slshape \leftmark}
-%  \fancyhead[LO]{\slshape \rightmark}
-%	The above makes your headers in all caps. If you would like different headers, choose one of the following options (be sure to remove the % symbol from both the right and left headers):
-	 \fancyhead[RE]{\slshape \nouppercase \leftmark} % This makes the headers on the RIGHT side pages be italic and use lowercase With Capitals When Specified.
-	\fancyhead[LO]{\slshape \nouppercase \rightmark} % This does the same thing to the LEFT side pages
-%	or
-%	\fancyhead[RE]{\scshape \leftmark} % The RIGHT headers will be in small caps.
-%	\fancyhead[LO]{\scshape \rightmark} %  And so will the LEFT headers
-  \pagestyle{fancy}
+  \fancyhead[LE,LO]{\thepage}
+  % Give more space to the header for uppercase running head
+  \setlength{\headheight}{14.49998pt}
+  % Provisional: running head has to be set here, aka write here a short version
+  % of the title
+  \fancyhead[RE, RO]{ \MakeUppercase{Why ducks quack}}
 
-% Psych majors: You do not need the following six lines, as it conflicts with apacite, so comment them out.
-  \let\oldthebibliography=\thebibliography
-  \let\endoldthebibliography=\endthebibliography
-  \renewenvironment{thebibliography}[1]{
-    \oldthebibliography{#1}
-    \addcontentsline{toc}{chapter}{\bibname}
-  }{\endoldthebibliography}
+  \pagestyle{fancy}
+  % Psych majors: You do not need the following six lines, as it conflicts with apacite, so comment them out.
+  %\let\oldthebibliography=\thebibliography
+  %\let\endoldthebibliography=\endthebibliography
+  %\renewenvironment{thebibliography}[1]{
+  %  \oldthebibliography{#1}
+  %  \addcontentsline{toc}{chapter}{\bibname}
+  %}{\endoldthebibliography}
  %%%%%% end of things for psych majors to comment out
 
   \let\oldtheindex=\theindex
@@ -132,14 +134,16 @@
   }{\endoldtheindex}
 }
 
-% Stolen from book.cls and modified
-\let\RToldchapter\chapter
-\renewcommand{\chapter}{\if@openright\RTcleardoublepage
-		    \else\clearpage\fi
-		    \thispagestyle{empty}%
-		    \global\@topnum\z@
-		    \@afterindentfalse
-		    \secdef\@chapter\@schapter}
+% ------------------------------------------------------------------------------
+
+% ------Show number in first chapter page---------------------------------------
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[LE,LO]{\thepage}
+  \setlength{\headheight}{14.49998pt}
+  \fancyhead[RE, RO]{ \MakeUppercase{Why ducks quack}}
+  }
+% ------------------------------------------------------------------------------
 
 % Stolen from book.cls PBC 5/12/05
 % Using this to actually show "Chapter 1" in TOC instead of "1"
@@ -173,24 +177,17 @@
 \let\RToldcleardoublepage\cleardoublepage
 \renewcommand{\cleardoublepage}{\RTcleardoublepage}
 
-% adjust margins for binding  (changed 2007-04-24 tgp)
-\setlength{\oddsidemargin}{.5in}
-\setlength{\evensidemargin}{0in}
-\setlength{\textwidth}{6.0in}
-\setlength{\textheight}{9.0in}
-\setlength\topmargin{0in}
-\addtolength\topmargin{-\headheight}
-\addtolength\topmargin{-\headsep}
+% ==============================================================================
+%                    UOA MARGINS - APA STYLE 7th + Binding
+% ==============================================================================
 
-%\setlength{\oddsidemargin}{.6in}
-%\setlength{\evensidemargin}{0in}
-%\setlength{\textwidth}{5.9in}
-\addtolength\headheight{2.5pt}
-%\addtolength\topmargin{-\headheight}
-%\addtolength\topmargin{-\headsep}
-%\addtolength\textheight{1in}
-%\addtolength\textheight{\headheight}
-%\addtolength\textheight{\headsep}
+% ------For twoside-------------------------------------------------------------
+% Change binding depending on type of binding
+% Set to 0 for online publishing (all margins equal)
+\RequirePackage[margin=2.54cm, bindingoffset=0.5cm]{geometry}
+
+% ------------------------------------------------------------------------------
+
 
 \def\degree#1{\gdef \@degree{#1}}
 \def\@degree{\@latex@warning@no@line{No \noexpand\degree given}}
@@ -283,67 +280,58 @@
 % I hacked the title page to all be the same font size
 % as requested by the library, BTS 2005
 
+% ==============================================================================
+%                           UOA TITLEPAGE - APA STYLE 7th
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+% The original lines used to create the title page have been completely replace
+% by the author (Daniele Scanzi), to create a layout that follows the guidelines
+% provided by the University of Auckland. See:
+% https://www.auckland.ac.nz/en/about-us/about-the-university/policy-hub/research-innovation/doctoral-study/undertaking-research/doctoral-thesis-policy-procedures.html
+% and here:
+% https://cdn.auckland.ac.nz/assets/central/for/current-students/postgraduate-students/documents/policies-guidelines-forms/guide-to-theses-and-dissertations.pdf
+% ------------------------------------------------------------------------------
 \renewcommand{\maketitle}{%
-  {\pagestyle{empty}
-  \fontsize{12}{14}\selectfont
-  \begin{titlepage}
-  \newpage
-  \let\footnotesize\small
-  \let\footnoterule\relax
-  \let \footnote \thanks
+    %Remove headings
+    {\pagestyle{empty}
+    \begin{titlepage}
+    \newpage
+    \let\footnotesize\small
+    \let\footnoterule\relax
+    \let \footnote \thanks
 
-  \baselineskip = 1.4\baselineskip
-  \setbox0=\hbox{of the Requirements for the Degree}
 
-  \begin{center}
-    \setcounter{page}{1}
-    \null\vfil
-    {\fontsize{12}{14}\selectfont \@title}
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \vfil
-    A Thesis \\
-    Presented to \\
-    \@thedivisionof \ \@division \\
-    \@institution
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \vfil
-    In Partial Fulfillment \\
-    of the Requirements for the Degree \\
-    \@degree
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \bigskip
-    \centerline{}
-    \bigskip
-    {\fontsize{12}{14}\selectfont \lineskip .75em
-    \begin{tabular}[t]{c}%
-      \@author
-    \end{tabular}\par}
-    \vskip 1.5em
-    {\fontsize{12}{14}\selectfont \@date \par}
-  \end{center}\par
-  \end{titlepage}
+    \begin{center}
+      % Count this page (although number is not displayed)
+      \setcounter{page}{1}
+      \null\vfil
+      % Set title in bold
+      {\bfseries {\@title} \par}
+      %\vspace{2cm}
+      \vfil
+      %\centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
+      %\vfil
+      {\@author \par}
+      \vfil
+      A thesis submitted in fulfilment of the requirements for \\ the degree of
+      \@degree in \@department \\
+      the \@institution \\
+      \@date
 
-%% Approved for the division page
-  \cleardoublepage
-  {\fontsize{12}{14}
-  \setbox0=\hbox{Approved for the \@approvedforthe}
-  \thispagestyle{empty}
-  \null\vfil		% just below center of page
-  \par\vskip 6cm	% below center, not center
-  \centerline{\copy0}	% approved
-  \centerline{(\@department)} %major
-  \vskip 1cm		%space to sign
-  \centerline{\makebox[\wd0][c]{\hrulefill}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\hrulefill} \fi}
-  \centerline{\makebox[\wd0][c]{\@advisor}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\@altadvisor} \fi}
-  \par\vfil\null}
-  \cleardoublepage
-  }
+
+    \end{center}
+    \end{titlepage}
+    }
 }
+
+% ------------------------------------------------------------------------------
+
+
+
+
+
+
 
 % From JSS
 % Added by CII
