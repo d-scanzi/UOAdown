@@ -1,5 +1,5 @@
 # from https://github.com/rstudio/bookdown/blob/master/R/utils.R
-thesisdown_file <- function(...) {
+UOAdown_file <- function(...) {
   system.file(..., package = 'UAOdown', mustWork = TRUE)
 }
 
@@ -10,7 +10,7 @@ UOAdown_skeleton <- function(path = getwd()) {
 #  dir.create(path, recursive = TRUE, showWarnings = FALSE)
 
   # copy 'resources' folder to path
-  resources <- thesisdown_file('rstudio', 'templates', 'project', 'resources')
+  resources <- UOAdown_file('rstudio', 'templates', 'project', 'resources')
 
   R.utils::copyDirectory(from = resources,
                          to = path,

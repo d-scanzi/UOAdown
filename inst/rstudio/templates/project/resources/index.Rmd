@@ -32,7 +32,7 @@ header-includes:
 # This will automatically install the {remotes} package and {thesisdown}
 # Change this to FALSE if you'd like to install them manually on your own.
 params:
-  'Install needed packages for {thesisdown}': True
+  'Install needed packages for {UOAdown}': True
 output:
   thesisdown::thesis_pdf: default 
 #  thesisdown::thesis_gitbook: default         
