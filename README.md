@@ -97,7 +97,7 @@ the following dialog to show up.
     graduation cap as the icon on the left for the appropriate project
     type.
 
-    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/thesis_proj.png?raw=true)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/uoa_down_project.png?raw=true)
 
     Next, give your project a name and specify where you’d like the
     files to appear. In the screenshot below, the project name is
@@ -112,7 +112,7 @@ the following dialog to show up.
 
 -   3b) Use the **New R Markdown** dialog to select **Thesis**:
 
-    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/thesis_rmd.png?raw=true)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/uoa_down_markdown.png?raw=true)
 
     Note that this will currently only **Knit** if you name the
     directory `index` as shown above. This guarantees that `index.html`
