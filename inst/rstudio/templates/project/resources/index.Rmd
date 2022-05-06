@@ -1,14 +1,26 @@
 ---
-title: 'My Final College Paper'
-author: 'Your R. Name'
-date: 'May 20xx'
-institution: 'Reed College'
-division: 'Mathematics and Natural Sciences'
+# Thesis details and fron matter
+title: 'Why ducks quack and what they are tring to tell us'
+author: 'Mr Quack Duck'
+date: 'May 2022'
+institution: 'The University of Auckland'
+division: 'Science'
 advisor: 'Advisor F. Name'
 # If you have more two advisors, un-silence line 7
 #altadvisor: 'Your Other Advisor'
-department: 'Mathematics'
-degree: 'Bachelor of Arts'
+department: 'Psychology'
+degree: 'Doctor of Philosophy (PhD)'
+abstract: '`r if(knitr:::is_latex_output()) paste(readLines(here::here("prelims", "00-abstract.Rmd")), collapse = "\n  ")`'
+acknowledgements: |
+  I want to thank a few people.
+dedication: |
+  You can have a dedication here if you wish. 
+preface: |
+  This is an example of a thesis setup to use the reed thesis document class 
+  (for LaTeX) and the R bookdown package, in general.
+
+# Knitting parameters
+
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 
@@ -21,31 +33,12 @@ header-includes:
 # Change this to FALSE if you'd like to install them manually on your own.
 params:
   'Install needed packages for {thesisdown}': True
-  
-# Remove the hashtag to specify which version of output you would like.
-# Can only choose one at a time.
 output:
   thesisdown::thesis_pdf: default 
 #  thesisdown::thesis_gitbook: default         
 #  thesisdown::thesis_word: default
 #  thesisdown::thesis_epub: default
 
-# If you are creating a PDF you'll need to write your preliminary content 
-# (e.g., abstract, acknowledgements) below or use code similar to line 25-26 
-# for the .RMD files. If you are NOT producing a PDF, delete or silence
-# lines 25-39 in this YAML header.
-abstract: '`r if(knitr:::is_latex_output()) paste(readLines(here::here("prelims", "00-abstract.Rmd")), collapse = "\n  ")`'
-# If you'd rather include the preliminary content in files instead of inline
-# like below, use a command like that for the abstract above.  Note that a tab 
-# is needed on the line after the `|`.
-acknowledgements: |
-  I want to thank a few people.
-dedication: |
-  You can have a dedication here if you wish. 
-preface: |
-  This is an example of a thesis setup to use the reed thesis document class 
-  (for LaTeX) and the R bookdown package, in general.
-  
 # Specify the location of the bibliography below
 bibliography: bib/thesis.bib
 # Download your specific csl file and refer to it in the line below.
