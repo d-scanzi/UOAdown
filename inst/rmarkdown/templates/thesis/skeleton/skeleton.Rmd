@@ -29,15 +29,15 @@ site: bookdown::bookdown_site
 header-includes:
     - \usepackage{setspace}\onehalfspacing
 
-# This will automatically install the {remotes} package and {thesisdown}
+# This will automatically install the {remotes} package and {UOAdown}
 # Change this to FALSE if you'd like to install them manually on your own.
 params:
   'Install needed packages for {UOAdown}': True
 output:
-  thesisdown::thesis_pdf: default 
-#  thesisdown::thesis_gitbook: default         
-#  thesisdown::thesis_word: default
-#  thesisdown::thesis_epub: default
+  UOAdown::thesis_pdf: default 
+#  UOAdown::thesis_gitbook: default         
+#  UOAdown::thesis_word: default
+#  UOAdown::thesis_epub: default
 
 # Specify the location of the bibliography below
 bibliography: bib/thesis.bib
@@ -61,11 +61,11 @@ If you receive a duplicate label error after knitting, make sure to delete the i
 -->
 
 ```{r include_packages, include=FALSE}
-# This chunk ensures that the thesisdown package is
-# installed and loaded. This thesisdown package includes
+# This chunk ensures that the UOAdown package is
+# installed and loaded. This UOAdown package includes
 # the template files for the thesis.
 if (!require(remotes)) {
-  if (params$`Install needed packages for {thesisdown}`) {
+  if (params$`Install needed packages for {UOAdown}`) {
     install.packages("remotes", repos = "https://cran.rstudio.com")
   } else {
     stop(
@@ -74,20 +74,20 @@ if (!require(remotes)) {
     )
   }
 }
-if (!require(thesisdown)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    remotes::install_github("ismayc/thesisdown")
+if (!require(UOAdown)) {
+  if (params$`Install needed packages for {UOAdown}`) {
+    remotes::install_github("d-scanzi/UOAdown")
   } else {
     stop(
       paste(
         "You need to run",
-        'remotes::install_github("ismayc/thesisdown")',
+        'remotes::install_github("d-scanzi/UOAdown")',
         "first in the Console."
       )
     )
   }
 }
-library(thesisdown)
+library(UOAdown)
 # Set how wide the R output will go
 options(width = 70)
 ```
