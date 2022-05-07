@@ -30,7 +30,8 @@ and **R** code and its output can be seamlessly included using
 ***NOTE: the template was created by the author and it respects the general 
 guidelines linked above. These guidelines are not strict and might vary across
 departments. Thus, the [APA style 7th](https://apastyle.apa.org/) guidelines 
-have been implemented where the University did not provided rules.***
+have been implemented where the University did not provided rules.*** With time 
+new citation styles might be added. Contributions on this are welcome.
 
 
 ### Using UOAdown for your thesis
@@ -57,7 +58,7 @@ to knit as well. Here is one such example of how to do so:
 tinytex::tlmgr_install("babel-portuges")
 ```
 
-To use {thesisdown} from
+To use {UOAdown} from
 [RStudio](https://www.rstudio.com/products/rstudio/download/):
 
 1.  Ensure that you have already installed LaTeX and the fonts described
@@ -78,7 +79,7 @@ To use {thesisdown} from
     if (!require("remotes")) 
       install.packages("remotes", repos = "https://cran.rstudio.org")
     remotes::install_github("rstudio/bookdown")
-    remotes::install_github("ismayc/thesisdown")
+    remotes::install_github("d-scanzi/UOAdown")
     ```
 
           Note that you may need to restart RStudio at this point for
@@ -96,13 +97,13 @@ the following dialog to show up.
     graduation cap as the icon on the left for the appropriate project
     type.
 
-    ![](https://raw.githubusercontent.com/ismayc/thesisdown/master/docs/reference/figures/thesis_proj.png)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/uoa_down_project.png?raw=true)
 
     Next, give your project a name and specify where you’d like the
     files to appear. In the screenshot below, the project name is
     `my_thesis` and it will appear as a new folder on my Desktop.
 
-    ![](https://raw.githubusercontent.com/ismayc/thesisdown/master/docs/reference/figures/thesis_proj_name.png)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/thesis_proj_name.png?raw=true)
 
     If for some reason this does not work, you can use the **not recommended** 
     procedure described in the next step (3b). This procedure is not recommmended
@@ -111,7 +112,7 @@ the following dialog to show up.
 
 -   3b) Use the **New R Markdown** dialog to select **Thesis**:
 
-    ![](https://raw.githubusercontent.com/ismayc/thesisdown/master/docs/reference/figures/thesis_rmd.png)
+    ![](https://github.com/d-scanzi/UOAdown/blob/master/images/uoa_down_markdown.png?raw=true)
 
     Note that this will currently only **Knit** if you name the
     directory `index` as shown above. This guarantees that `index.html`
@@ -164,7 +165,11 @@ Note that you need to have at least one chapter start in the `index.Rmd`
 file for the build to work. For the template, this is done with
 `# Introduction` in the example from the template.
 
-### `01-chap1.Rmd`, `02-chap2.Rmd`, etc.
+### `chapters
+This is the folder where you need to save the chapters `.Rmd` files (see next point). 
+Having the chapters files all in the same directory should be cleaner. 
+
+#### `01-chap1.Rmd`, `02-chap2.Rmd`, etc.
 
 These are the Rmd files for each chapter in your dissertation. Write
 your thesis in these. If you’re writing in RStudio, you may find the
@@ -185,6 +190,8 @@ Specific style files for bibliographies should be stored here. A good
 source for citation styles is
 <https://github.com/citation-style-language/styles#readme>.
 
+The plan is to add more.
+
 ### `figure/` and `data/`
 
 Store your figures and data here and reference them in your R Markdown
@@ -201,3 +208,13 @@ At the moment, the only way to change the running head is to do the following:
 the following lines: `\fancyhead[RE, RO]{ \MakeUppercase{Why ducks quack}}`
 3. Replace the default running head with what you want. Note, do NOT use quotation marks!
 Make sure the running head is short. 
+
+## Publication pages
+If some of the chapters are based on your published work, then you will need to 
+add the *Co-autorship* form at the beginning of the relevant chapter. This form
+is not indexed (no page number and does not appear in the Table of Content). Thus, 
+currently you need to add it after rendering the thesis, using a dedicated 
+software (eg. [pdfarranger](https://github.com/pdfarranger/pdfarranger) on Linux or
+[pdf24 creator](https://www.pdf24.org/en/) for Windows or online).
+
+The plan is to add the possibility to render those within the {UOAdown} package.
