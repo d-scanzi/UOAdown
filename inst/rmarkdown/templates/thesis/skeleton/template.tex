@@ -246,7 +246,16 @@ $if(lof)$
 $endif$
 
 % VIII - GLOSSARY
-% Work in progress
+$if(abbreviations)$
+  \chapter*{List of Abbreviations}
+  \begin{table}[h]
+    \begin{tabular}{ll}
+        $for(abbreviations/pairs)$
+        \textbf{$it.key$} & $it.value$ \\
+        $endfor$
+    \end{tabular}
+\end{table}
+$endif$
 % ------------------------------------------------------------------------------
 
 % ------Mainmatter--------------------------------------------------------------

@@ -245,8 +245,19 @@ $if(lof)$
   \listoffigures
 $endif$
 
-% VIII - GLOSSARY
-% Work in progress
+% VIII - GLOSSARY 
+% Taken from this pull request 
+% (https://github.com/ismayc/thesisdown/pull/175/commits/907f2071bd92d916876e2fa5ec0c2204ba4db0ff)
+$if(abbreviations)$
+  \chapter*{List of Abbreviations}
+  \begin{table}[h]
+    \begin{tabular}{ll}
+        $for(abbreviations/pairs)$
+        \textbf{$it.key$} & $it.value$ \\
+        $endfor$
+    \end{tabular}
+\end{table}
+$endif$
 % ------------------------------------------------------------------------------
 
 % ------Mainmatter--------------------------------------------------------------

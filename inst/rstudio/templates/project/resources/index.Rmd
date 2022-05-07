@@ -18,6 +18,16 @@ dedication: |
 preface: |
   This is an example of a thesis setup to use the reed thesis document class 
   (for LaTeX) and the R bookdown package, in general.
+  
+# Add your abbreviations here. Although manually might take a while, 
+# it does not require to learn any specific LaTex coding, so it should be 
+# more accessible. Get rid off these lines if you don't need a glossary. 
+abbreviations:
+  ABC: American Broadcasting Company
+  CBS: Colombia Broadcasting System
+  CUS: Computer User Services
+  PBS: Public Broadcasting System
+  NBC: National Broadcasting Company
 
 # Knitting parameters
 
