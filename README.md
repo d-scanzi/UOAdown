@@ -209,6 +209,11 @@ the following lines: `\fancyhead[RE, RO]{ \MakeUppercase{Why ducks quack}}`
 3. Replace the default running head with what you want. Note, do NOT use quotation marks!
 Make sure the running head is short. 
 
+## Margins
+Margins are currently set according to APA style 7th guidelines for online publications
+(all margins set to 1in). If printing and binding is required, the template can easily be
+easily modified for this)
+
 ## Publication pages
 If some of the chapters are based on your published work, then you will need to 
 add the *Co-autorship* form at the beginning of the relevant chapter. This form
